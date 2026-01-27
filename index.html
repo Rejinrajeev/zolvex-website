@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOLVEX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" data-page="home">
+            <div class="logo-text">
+            <span>ZOLVEX</span>
+            <span>READY TO REVIVE</span>
+            </div>
+            </a>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="about">About Us</a></li>
+                    <li><a href="#" data-page="services">Services</a></li>
+                    <li><a href="#" data-page="booking">Booking</a></li>
+                    <li><a href="#" data-page="faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-cta">
+                <a href="tel:+918089631909" class="phone-link">
+                    <i class="fas fa-phone"></i> +91 8089631909
+                </a>
+                <a href="#" class="btn btn-primary" data-page="booking">Book a Service</a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page Content -->
+    <main id="home" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>READY TO REVITALIZE YOUR SPACE?</h1>
+                    <p>Expert Deep Cleaning Services Tailored to Your Needs. Experience the transformation with Zolvex
+                        professional cleaning solutions.</p>
+                    <a href="#" class="btn btn-primary" data-page="booking">Get a Free Quote</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">OUR SERVICES</h2>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/media/work_img_4.jpeg" alt="Home Deep Cleaning">
+                        </div>
+                        <div class="service-content">
+                            <h3>Home Deep Cleaning</h3>
+                            <p>Thorough deep cleaning for kitchens, living rooms, bedrooms, bathrooms, and all areas of
+                                your home. We pay attention to every detail.</p>
+                            <a href="#" class="btn btn-secondary" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/media/work_img_5.jpeg" alt="Office Deep Cleaning">
+                        </div>
+                        <div class="service-content">
+                            <h3>Office Deep Cleaning</h3>
+                            <p>Create a pristine work environment with our comprehensive office cleaning services. We
+                                handle everything from desks to common areas.</p>
+                            <a href="#" class="btn btn-secondary" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/media/work_img_7.jpeg" alt="Carpet & Upholstery">
+                        </div>
+                        <div class="service-content">
+                            <h3>Carpet & Upholstery</h3>
+                            <p>Revitalize your carpets and upholstery with our expert cleaning techniques. We remove
+                                deep-seated dirt, stains, and allergens effectively.</p>
+                            <a href="#" class="btn btn-secondary" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Services (Hidden by default) -->
+                <div class="more-services" id="moreServices">
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/media/work_img_8.jpeg" alt="Window Cleaning">
+                        </div>
+                        <div class="service-content">
+                            <h3>Window Cleaning</h3>
+                            <p>Professional window cleaning services for crystal clear views. We clean both interior and
+                                exterior windows safely and efficiently.</p>
+                            <a href="#" class="btn btn-secondary" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/media/work_img_3.jpeg" alt="Post-Construction Cleaning">
+                        </div>
+                        <div class="service-content">
+                            <h3>Post-Construction Cleaning</h3>
+                            <p>Complete cleaning after construction or renovation projects. We remove dust, debris, and
+                                prepare your space for occupancy.</p>
+                            <a href="#" class="btn btn-secondary" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/media/work_img_1.jpeg" alt="Move In/Move Out Cleaning">
+                        </div>
+                        <div class="service-content">
+                            <h3>Move In/Move Out Cleaning</h3>
+                            <p>Thorough cleaning for properties before moving in or after moving out. We ensure the
+                                space is spotless and ready for new occupants.</p>
+                            <a href="#" class="btn btn-secondary" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="show-more-container">
+                    <button class="btn btn-secondary" id="showMoreBtn">
+                        <span>Show More Services</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <h2 class="section-title">WHY CHOOSE ZOLVEX</h2>
+                <div class="reasons-grid">
+                    <div class="reason">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Experienced Professionals</h3>
+                        <p>Our team consists of trained, background-checked professionals with years of experience in
+                            deep cleaning services.</p>
+                    </div>
+
+                    <div class="reason">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Premium Quality</h3>
+                        <p>We use only eco-friendly, professional-grade cleaning products and equipment to ensure the
+                            best results.</p>
+                    </div>
+
+                    <div class="reason">
+                        <i class="fas fa-clock"></i>
+                        <h3>Timely Service</h3>
+                        <p>We respect your time and ensure our services are completed within the promised timeframe with
+                            minimal disruption.</p>
+                    </div>
+
+                    <div class="reason">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Satisfaction Guaranteed</h3>
+                        <p>Your satisfaction is our priority. We offer a 100% satisfaction guarantee on all our cleaning
+                            services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Service Section -->
+        <section class="featured-service">
+            <div class="container">
+                <h2 class="section-title">PREMIUM HOME DEEP CLEANING</h2>
+                <div class="featured-content">
+                    <div class="featured-image">
+                        <img src="/media/kitchen_img.png"
+                            alt="Home Deep Cleaning Service">
+                    </div>
+                    <div class="featured-text">
+                        <h3>Transform Your Living Space</h3>
+                        <p>Our comprehensive home deep cleaning service is designed to revitalize every corner of your
+                            home. From kitchens to bathrooms, living areas to bedrooms, we leave no surface untouched.
+                        </p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Comprehensive cleaning of all rooms and surfaces</li>
+                            <li><i class="fas fa-check"></i> Kitchen deep cleaning including appliances</li>
+                            <li><i class="fas fa-check"></i> Bathroom sanitization and grout cleaning</li>
+                            <li><i class="fas fa-check"></i> Floor and carpet deep cleaning</li>
+                            <li><i class="fas fa-check"></i> Dusting and wiping of all surfaces and fixtures</li>
+                            <li><i class="fas fa-check"></i> Window sills and door frames cleaning</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" data-page="booking">Book This Service</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Page Content -->
+    <section id="about" class="page-content">
+        <div class="container">
+            <h2 class="section-title">ABOUT ZOLVEX</h2>
+
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/media/kitchen_img.png"
+                        alt="Zolvex Team">
+                </div>
+
+                <div class="about-text">
+                    <h3>Ready to Revive Your Spaces</h3>
+                    <p>At Zolvex, we specialize in revitalizing homes and businesses with top-notch deep cleaning
+                        services. Our experienced team is dedicated to transforming your living and working spaces into
+                        pristine environments.</p>
+                    <p>Founded with a mission to provide exceptional cleaning services, we combine industry expertise
+                        with attention to detail to deliver results that exceed expectations. Our team undergoes
+                        rigorous training and uses only the best equipment and eco-friendly products.</p>
+                    <p>We believe that a clean environment contributes to better health, productivity, and overall
+                        well-being. That's why we're committed to delivering cleaning services that not only meet but
+                        exceed your expectations.</p>
+                </div>
+            </div>
+
+            <div class="mission-vision">
+                <div class="mission-card">
+                    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                    <p>To provide exceptional deep cleaning services that transform spaces and enhance the quality of
+                        life for our clients, using eco-friendly products and professional expertise.</p>
+                </div>
+
+                <div class="vision-card">
+                    <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                    <p>To become the most trusted and sought-after deep cleaning service provider, recognized for our
+                        commitment to excellence, reliability, and customer satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page Content -->
+    <section id="services" class="page-content services-page">
+        <div class="container">
+            <h2 class="section-title">OUR CLEANING SERVICES</h2>
+            <p class="section-subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">We offer a
+                comprehensive range of deep cleaning services tailored to residential and commercial needs. Each service
+                is designed to deliver exceptional results.</p>
+
+            <div class="services-grid">
+                <!-- Services repeated from home page -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/media/work_img_4.jpeg"
+                            alt="Home Deep Cleaning">
+                    </div>
+                    <div class="service-content">
+                        <h3>Home Deep Cleaning</h3>
+                        <p>Comprehensive cleaning of all areas in your home including living rooms, bedrooms, kitchens,
+                            and bathrooms with attention to detail.</p>
+                        <a href="#" class="btn btn-secondary" data-page="booking">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/media/work_img_5.jpeg"
+                            alt="Office Deep Cleaning">
+                    </div>
+                    <div class="service-content">
+                        <h3>Office Deep Cleaning</h3>
+                        <p>Complete cleaning of office spaces including workstations, common areas, restrooms, and
+                            kitchenettes to maintain a healthy work environment.</p>
+                        <a href="#" class="btn btn-secondary" data-page="booking">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/media/work_img_7.jpeg"
+                            alt="Carpet & Upholstery">
+                    </div>
+                    <div class="service-content">
+                        <h3>Carpet & Upholstery</h3>
+                        <p>Professional cleaning and stain removal for carpets, rugs, sofas, chairs, and other
+                            upholstered furniture using specialized equipment.</p>
+                        <a href="#" class="btn btn-secondary" data-page="booking">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/media/work_img_8.jpeg"
+                            alt="Window Cleaning">
+                    </div>
+                    <div class="service-content">
+                        <h3>Window Cleaning</h3>
+                        <p>Interior and exterior window cleaning including frames, tracks, and glass surfaces for
+                            crystal clear views and natural light.</p>
+                        <a href="#" class="btn btn-secondary" data-page="booking">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/media/work_img_3.jpeg"
+                            alt="Post-Construction Cleaning">
+                    </div>
+                    <div class="service-content">
+                        <h3>Post-Construction Cleaning</h3>
+                        <p>Thorough cleaning after construction or renovation projects to remove dust, debris, and
+                            prepare the space for occupancy.</p>
+                        <a href="#" class="btn btn-secondary" data-page="booking">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/media/work_img_1.jpeg"
+                            alt="Move In/Move Out Cleaning">
+                    </div>
+                    <div class="service-content">
+                        <h3>Move In/Move Out Cleaning</h3>
+                        <p>Complete cleaning services for properties before moving in or after moving out to ensure the
+                            space is spotless and ready for new occupants.</p>
+                        <a href="#" class="btn btn-secondary" data-page="booking">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Page Content -->
+    <section id="booking" class="page-content">
+        <div class="container">
+            <h2 class="section-title">BOOK A SERVICE</h2>
+            <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Fill out the
+                form below to request a free quote or schedule a service. Our team will contact you within 24 hours to
+                confirm details and provide pricing.</p>
+
+            <div class="booking-form">
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceType">Service Type *</label>
+                            <select id="serviceType" class="form-control" required>
+                                <option value="">Select a Service</option>
+                                <option value="home-deep-cleaning">Home Deep Cleaning</option>
+                                <option value="office-deep-cleaning">Office Deep Cleaning</option>
+                                <option value="carpet-upholstery">Carpet & Upholstery Cleaning</option>
+                                <option value="window-cleaning">Window Cleaning</option>
+                                <option value="post-construction">Post-Construction Cleaning</option>
+                                <option value="move-in-out">Move In/Move Out Cleaning</option>
+                                <option value="other">Other Service</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="propertyType">Property Type *</label>
+                            <select id="propertyType" class="form-control" required>
+                                <option value="">Select Property Type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="office">Office/Commercial</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="propertySize">Approximate Size (sq ft)</label>
+                            <input type="number" id="propertySize" class="form-control" min="100" max="10000">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preferredDate">Preferred Date</label>
+                        <input type="date" id="preferredDate" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional Details</label>
+                        <textarea id="message" class="form-control" rows="4"
+                            placeholder="Please provide any additional information about your cleaning needs..."></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                            <i class="fas fa-paper-plane"></i> Submit Booking Request
+                        </button>
+                    </div>
+
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+                        By submitting this form, you agree to our <a href="#"
+                            style="color: var(--primary-accent);">Privacy Policy</a>. We'll contact you shortly to
+                        discuss your cleaning needs.
+                    </p>
+                </form>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3>Prefer to Book by Phone?</h3>
+                <p>Call us directly to discuss your cleaning needs and get an instant quote:</p>
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="tel:+918089631909" class="phone-link" style="font-size: 1.2rem;">
+                        <i class="fas fa-phone"></i> +91 8089631909
+                    </a>
+                    <a href="tel:+918590570373" class="phone-link" style="font-size: 1.2rem;">
+                        <i class="fas fa-phone"></i> +91 8590570373
+                    </a>
+                </div>
+                <p style="margin-top: 1.5rem;">Or email us at: <a href="mailto:info@zolvex.in"
+                        style="color: var(--primary-accent);">info@zolvex.in</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Page Content -->
+    <section id="faq" class="page-content">
+        <div class="container">
+            <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+            <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Find answers
+                to common questions about our deep cleaning services, booking process, and policies.</p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What areas do you serve?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We currently serve the greater metropolitan area and surrounding suburbs. Please contact us
+                            with your specific location to confirm service availability in your area.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do you determine pricing for cleaning services?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our pricing is based on several factors including the size of the property, type of service
+                            required, current condition, and any special requests. We provide free, no-obligation quotes
+                            after understanding your specific needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What cleaning products do you use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use professional-grade, eco-friendly cleaning products that are effective yet safe for
+                            your family, pets, and the environment. We can also accommodate requests for specific
+                            products if you have preferences or allergies.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are your cleaners insured and background-checked?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all our cleaning professionals are thoroughly vetted, background-checked, and fully
+                            insured. Your safety and security are our top priorities.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need to be home during the cleaning service?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It's not necessary for you to be present during the cleaning. Many clients provide us with
+                            access instructions or a key. We take security seriously and ensure your property is secure
+                            when we leave.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is your cancellation policy?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We require at least 24 hours notice for cancellations. Cancellations made with less than 24
+                            hours notice may incur a cancellation fee. We understand emergencies happen and will work
+                            with you in those situations.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer any satisfaction guarantee?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a 100% satisfaction guarantee. If you're not completely satisfied with any
+                            aspect of our service, please contact us within 24 hours and we'll return to address your
+                            concerns at no additional cost.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3>Still Have Questions?</h3>
+                <p>Contact us directly and we'll be happy to help!</p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem;">
+                    <a href="tel:+918089631909" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Call Us
+                    </a>
+                    <a href="mailto:info@zolvex.in" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-text">
+                            <span>ZOLVEX</span>
+                            <span>READY TO REVIVE</span>
+                        </div>
+                    </div>
+                    <p>Expert deep cleaning services for homes and businesses. We transform your living and working
+                        spaces into pristine environments.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="services">Services</a></li>
+                        <li><a href="#" data-page="booking">Booking</a></li>
+                        <li><a href="#" data-page="faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#" data-page="services">Home Deep Cleaning</a></li>
+                        <li><a href="#" data-page="services">Office Deep Cleaning</a></li>
+                        <li><a href="#" data-page="services">Carpet & Upholstery</a></li>
+                        <li><a href="#" data-page="services">Window Cleaning</a></li>
+                        <li><a href="#" data-page="services">Post-Construction Cleaning</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 8089631909</li>
+                        <li><i class="fas fa-phone"></i> +91 8590570373</li>
+                        <li><i class="fas fa-envelope"></i> info@zolvex.in</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Serving Metropolitan Area</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Zolvex, All Rights Reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                        Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
