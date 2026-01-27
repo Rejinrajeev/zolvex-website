@@ -436,11 +436,11 @@
             <div style="margin-top: 3rem; text-align: center;">
                 <h3>Prefer to Book by Phone?</h3>
                 <p>Call us directly to discuss your cleaning needs and get an instant quote:</p>
-                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="tel:+918089631909" class="phone-link" style="font-size: 1.2rem;">
+                <div class="phone-links">
+                    <a href="tel:+918089631909" class="phone-link">
                         <i class="fas fa-phone"></i> +91 8089631909
                     </a>
-                    <a href="tel:+918590570373" class="phone-link" style="font-size: 1.2rem;">
+                    <a href="tel:+918590570373" class="phone-link">
                         <i class="fas fa-phone"></i> +91 8590570373
                     </a>
                 </div>
@@ -871,56 +871,58 @@
     </section>
 
     <!-- Booking Confirmation Modal -->
-<div id="bookingModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3><i class="fas fa-check-circle"></i> Booking Request Submitted!</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="success-icon">
-                <i class="fas fa-check"></i>
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> Booking Request Submitted!</h3>
+                <button class="modal-close">&times;</button>
             </div>
-            <h4>Thank you, <span id="customerName"></span>!</h4>
-            <p>We have successfully received your booking request.</p>
-            
-            <div class="confirmation-details">
-                <div class="detail-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <strong>What's Next?</strong>
-                        <p>Our team will contact you within <span class="highlight">24 hours</span> at:</p>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h4>Thank you, <span id="customerName"></span>!</h4>
+                <p>We have successfully received your booking request.</p>
+
+                <div class="confirmation-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>What's Next?</strong>
+                            <p>Our team will contact you within <span class="highlight">24 hours</span> at:</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <p id="customerPhone"></p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p id="customerEmail"></p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="detail-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Phone</strong>
-                        <p id="customerPhone"></p>
-                    </div>
-                </div>
-                
-                <div class="detail-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email</strong>
-                        <p id="customerEmail"></p>
-                    </div>
+
+                <div class="modal-notes">
+                    <p><i class="fas fa-info-circle"></i> We'll confirm your booking details and provide exact pricing
+                        based on your requirements.</p>
+                    <p><i class="fas fa-headset"></i> Need immediate assistance? Call us now: <strong>+91
+                            8089631909</strong></p>
                 </div>
             </div>
-            
-            <div class="modal-notes">
-                <p><i class="fas fa-info-circle"></i> We'll confirm your booking details and provide exact pricing based on your requirements.</p>
-                <p><i class="fas fa-headset"></i> Need immediate assistance? Call us now: <strong>+91 8089631909</strong></p>
+            <div class="modal-footer">
+                <button id="modalCloseBtn" class="btn btn-primary">Close</button>
+                <button id="newBookingBtn" class="btn btn-secondary">Book Another Service</button>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button id="modalCloseBtn" class="btn btn-primary">Close</button>
-            <button id="newBookingBtn" class="btn btn-secondary">Book Another Service</button>
         </div>
     </div>
-</div>
 
     <!-- Footer -->
     <footer>
