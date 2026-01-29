@@ -234,3 +234,135 @@ document.addEventListener("click", (e) => {
     hamburger.classList.remove("active");
   }
 });
+
+
+
+// Vercel Router 
+class VercelRouter {
+    constructor() {
+        this.routes = {
+            '/': 'home',
+            '/home': 'home',
+            '/about': 'about',
+            '/services': 'services',
+            '/booking': 'booking',
+            '/faq': 'faq',
+            '/privacy-policy': 'privacy',
+            '/terms-conditions': 'terms'
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        // Handle initial page load
+        this.navigate(window.location.pathname, false);
+        
+        // Handle browser back/forward
+        window.addEventListener('popstate', () => {
+            this.navigate(window.location.pathname, false);
+        });
+        
+        // Handle all link clicks
+        document.addEventListener('click', (e) => {
+            // Check if it's a navigation link
+            if (e.target.matches('a[href^="/"]') && 
+                !e.target.matches('a[href^="http"]') &&
+                !e.target.matches('a[download]')) {
+                e.preventDefault();
+                const path = e.target.getAttribute('href');
+                this.navigate(path, true);
+            }
+            
+            // Also handle data-page links for backward compatibility
+            if (e.target.matches('[data-page]')) {
+                e.preventDefault();
+                const pageId = e.target.getAttribute('data-page');
+                this.navigateByPageId(pageId, true);
+            }
+        });
+    }
+    
+    navigate(path, pushState = true) {
+        // Clean the path
+        if (path === '' || path === '/index.html') path = '/';
+        
+        // Get page ID from route
+        const pageId = this.routes[path] || 'home';
+        
+        // Show the page
+        this.showPage(pageId);
+        
+        // Update URL if needed
+        if (pushState && path !== window.location.pathname) {
+            history.pushState({ pageId }, '', path);
+        }
+        
+        // Update active navigation
+        this.updateActiveNav(pageId);
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+        
+        // Update page title
+        this.updatePageTitle(pageId);
+    }
+    
+    navigateByPageId(pageId, pushState = true) {
+        // Find path for page ID
+        const path = Object.keys(this.routes).find(key => this.routes[key] === pageId) || '/';
+        this.navigate(path, pushState);
+    }
+    
+    showPage(pageId) {
+        // Hide all pages
+        document.querySelectorAll('.page-content').forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        // Show requested page
+        const page = document.getElementById(pageId);
+        if (page) {
+            page.classList.add('active');
+            
+            // Special handling for booking form
+            if (pageId === 'booking') {
+                const dateInput = document.getElementById('preferredDate');
+                if (dateInput) {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.min = today;
+                }
+            }
+        }
+    }
+    
+    updateActiveNav(pageId) {
+        // Remove active from all nav links
+        document.querySelectorAll('nav a, .footer-col a').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Add active to current page link
+        const activeLinks = document.querySelectorAll(`a[data-page="${pageId}"], a[href="${Object.keys(this.routes).find(key => this.routes[key] === pageId) || '/'}"]`);
+        activeLinks.forEach(link => {
+            link.classList.add('active');
+        });
+    }
+    
+    updatePageTitle(pageId) {
+        const titles = {
+            'home': 'Home - ZOLVEX | Ready to Revive',
+            'about': 'About Us - ZOLVEX | Ready to Revive',
+            'services': 'Services - ZOLVEX | Ready to Revive',
+            'booking': 'Book a Service - ZOLVEX | Ready to Revive',
+            'faq': 'FAQ - ZOLVEX | Ready to Revive',
+            'privacy': 'Privacy Policy - ZOLVEX | Ready to Revive',
+            'terms': 'Terms & Conditions - ZOLVEX | Ready to Revive'
+        };
+        
+        document.title = titles[pageId] || 'ZOLVEX | Ready to Revive';
+    }
+}
+
+// Initialize router
+const router = new VercelRouter();
