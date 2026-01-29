@@ -2,7 +2,8 @@
 const hamburger = document.getElementById("hamburger");
 const mainNav = document.getElementById("mainNav");
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click", (e) => {
+  e.stopPropagation();
   mainNav.classList.toggle("active");
   hamburger.classList.toggle("active");
 });
@@ -12,44 +13,6 @@ document.querySelectorAll("nav a").forEach((link) => {
   link.addEventListener("click", () => {
     mainNav.classList.remove("active");
     hamburger.classList.remove("active");
-  });
-});
-
-// Page Navigation
-document.querySelectorAll("[data-page]").forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-    const pageId = this.getAttribute("data-page");
-
-    // Hide all page content
-    document.querySelectorAll(".page-content").forEach((page) => {
-      page.classList.remove("active");
-    });
-
-    // Show selected page
-    document.getElementById(pageId).classList.add("active");
-
-    // Update active navigation
-    document.querySelectorAll("nav a").forEach((navLink) => {
-      navLink.classList.remove("active");
-    });
-
-    // If it's a navigation link, set it as active
-    if (
-      this.tagName === "A" &&
-      this.parentElement.parentElement.tagName === "NAV"
-    ) {
-      this.classList.add("active");
-    } else {
-      // Find corresponding nav link and set it as active
-      const navLink = document.querySelector(`nav a[data-page="${pageId}"]`);
-      if (navLink) {
-        navLink.classList.add("active");
-      }
-    }
-
-    // Scroll to top of page
-    window.scrollTo(0, 0);
   });
 });
 
@@ -80,8 +43,6 @@ document.querySelectorAll(".faq-question").forEach((question) => {
 });
 
 // Booking Form Submission
-
-// Booking Form Submission with Modal
 const bookingForm = document.getElementById("bookingForm");
 const bookingModal = document.getElementById("bookingModal");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
@@ -123,7 +84,7 @@ if (bookingForm) {
       return;
     }
 
-    // Validate phone number (basic Indian phone validation)
+    // Validate phone number
     const phoneRegex = /^[6-9]\d{9}$/;
     const cleanPhone = formData.phone.replace(/\D/g, "");
     if (cleanPhone.length !== 10 || !phoneRegex.test(cleanPhone)) {
@@ -131,7 +92,7 @@ if (bookingForm) {
       return;
     }
 
-    // Set modal content with form data
+    // Set modal content
     document.getElementById("customerName").textContent = formData.name;
     document.getElementById("customerPhone").textContent =
       formatPhoneNumber(cleanPhone);
@@ -139,43 +100,36 @@ if (bookingForm) {
 
     // Show modal
     bookingModal.style.display = "block";
-    document.body.style.overflow = "hidden"; // Prevent scrolling
+    document.body.style.overflow = "hidden";
 
-    // Reset form after successful submission
+    // Reset form
     setTimeout(() => {
       bookingForm.reset();
     }, 300);
 
-    // Log submission (in real app, send to server)
     console.log("Booking submitted:", formData);
   });
 }
 
 // Function to show form error
 function showFormError(message) {
-  // Remove any existing error message
   const existingError = document.querySelector(".form-error");
   if (existingError) existingError.remove();
 
-  // Create error element
   const errorDiv = document.createElement("div");
   errorDiv.className = "form-error";
   errorDiv.innerHTML = `
-        <div style="background-color: #ffebee; color: #c62828; padding: 1rem; border-radius: 4px; 
-                    border-left: 4px solid #c62828; margin-bottom: 1.5rem; display: flex; 
-                    align-items: center; gap: 0.8rem;">
-            <i class="fas fa-exclamation-circle"></i>
-            <span>${message}</span>
-        </div>
-    `;
+    <div style="background-color: #ffebee; color: #c62828; padding: 1rem; border-radius: 4px; 
+                border-left: 4px solid #c62828; margin-bottom: 1.5rem; display: flex; 
+                align-items: center; gap: 0.8rem;">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>${message}</span>
+    </div>
+  `;
 
-  // Insert before form
   bookingForm.insertBefore(errorDiv, bookingForm.firstChild);
-
-  // Scroll to error
   errorDiv.scrollIntoView({ behavior: "smooth", block: "center" });
 
-  // Remove error after 5 seconds
   setTimeout(() => {
     if (errorDiv.parentNode) {
       errorDiv.style.opacity = "0";
@@ -193,7 +147,7 @@ function formatPhoneNumber(phone) {
 // Modal Close Functions
 function closeModal() {
   bookingModal.style.display = "none";
-  document.body.style.overflow = "auto"; // Re-enable scrolling
+  document.body.style.overflow = "auto";
 }
 
 // Event listeners for modal close buttons
@@ -202,7 +156,6 @@ if (modalCloseX) modalCloseX.addEventListener("click", closeModal);
 if (newBookingBtn)
   newBookingBtn.addEventListener("click", () => {
     closeModal();
-    // Optional: Scroll to booking form
     document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
   });
 
@@ -235,133 +188,152 @@ document.addEventListener("click", (e) => {
   }
 });
 
-
-
-// Vercel Router 
+// Vercel Router - Updated Version
 class VercelRouter {
-    constructor() {
-        this.routes = {
-            '/': 'home',
-            '/home': 'home',
-            '/about': 'about',
-            '/services': 'services',
-            '/booking': 'booking',
-            '/faq': 'faq',
-            '/privacy-policy': 'privacy',
-            '/terms-conditions': 'terms'
-        };
-        
-        this.init();
+  constructor() {
+    this.routes = {
+      "/": "home",
+      "/home": "home",
+      "/about": "about",
+      "/services": "services",
+      "/booking": "booking",
+      "/faq": "faq",
+      "/privacy-policy": "privacy",
+      "/terms-conditions": "terms",
+    };
+
+    this.pageTitles = {
+      home: "Home - ZOLVEX | Ready to Revive",
+      about: "About Us - ZOLVEX | Ready to Revive",
+      services: "Services - ZOLVEX | Ready to Revive",
+      booking: "Book a Service - ZOLVEX | Ready to Revive",
+      faq: "FAQ - ZOLVEX | Ready to Revive",
+      privacy: "Privacy Policy - ZOLVEX | Ready to Revive",
+      terms: "Terms & Conditions - ZOLVEX | Ready to Revive",
+    };
+
+    this.init();
+  }
+
+  init() {
+    // Handle initial page load
+    this.handleRoute(window.location.pathname);
+
+    // Handle browser back/forward
+    window.addEventListener("popstate", () => {
+      this.handleRoute(window.location.pathname);
+    });
+
+    // Handle all link clicks
+    document.addEventListener("click", (e) => {
+      // Check if it's a regular link
+      if (
+        e.target.matches('a[href^="/"]') &&
+        !e.target.matches('a[href^="http"]') &&
+        !e.target.matches("a[download]")
+      ) {
+        e.preventDefault();
+        const path = e.target.getAttribute("href");
+        this.navigate(path, true);
+      }
+
+      // Also handle data-page links
+      const dataPageLink = e.target.closest("[data-page]");
+      if (dataPageLink && dataPageLink.hasAttribute("data-page")) {
+        e.preventDefault();
+        const pageId = dataPageLink.getAttribute("data-page");
+        this.navigateByPageId(pageId, true);
+      }
+    });
+  }
+
+  navigate(path, updateHistory = true) {
+    // Clean the path
+    if (path === "" || path === "/index.html") path = "/";
+
+    // Get page ID from route
+    const pageId = this.routes[path] || "home";
+
+    // Show the page
+    this.showPage(pageId);
+
+    // Update URL if needed
+    if (updateHistory && path !== window.location.pathname) {
+      history.pushState({ pageId }, "", path);
     }
-    
-    init() {
-        // Handle initial page load
-        this.navigate(window.location.pathname, false);
-        
-        // Handle browser back/forward
-        window.addEventListener('popstate', () => {
-            this.navigate(window.location.pathname, false);
-        });
-        
-        // Handle all link clicks
-        document.addEventListener('click', (e) => {
-            // Check if it's a navigation link
-            if (e.target.matches('a[href^="/"]') && 
-                !e.target.matches('a[href^="http"]') &&
-                !e.target.matches('a[download]')) {
-                e.preventDefault();
-                const path = e.target.getAttribute('href');
-                this.navigate(path, true);
-            }
-            
-            // Also handle data-page links for backward compatibility
-            if (e.target.matches('[data-page]')) {
-                e.preventDefault();
-                const pageId = e.target.getAttribute('data-page');
-                this.navigateByPageId(pageId, true);
-            }
-        });
-    }
-    
-    navigate(path, pushState = true) {
-        // Clean the path
-        if (path === '' || path === '/index.html') path = '/';
-        
-        // Get page ID from route
-        const pageId = this.routes[path] || 'home';
-        
-        // Show the page
-        this.showPage(pageId);
-        
-        // Update URL if needed
-        if (pushState && path !== window.location.pathname) {
-            history.pushState({ pageId }, '', path);
+
+    // Update active navigation
+    this.updateActiveNav(pageId);
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+
+    // Update page title
+    this.updatePageTitle(pageId);
+  }
+
+  navigateByPageId(pageId, updateHistory = true) {
+    // Find path for page ID
+    const path =
+      Object.keys(this.routes).find((key) => this.routes[key] === pageId) || "/";
+    this.navigate(path, updateHistory);
+  }
+
+  handleRoute(path) {
+    this.navigate(path, false);
+  }
+
+  showPage(pageId) {
+    // Hide all pages
+    document.querySelectorAll(".page-content").forEach((page) => {
+      page.classList.remove("active");
+    });
+
+    // Show requested page
+    const page = document.getElementById(pageId);
+    if (page) {
+      page.classList.add("active");
+
+      // Special handling for booking form
+      if (pageId === "booking") {
+        const dateInput = document.getElementById("preferredDate");
+        if (dateInput) {
+          const today = new Date().toISOString().split("T")[0];
+          dateInput.min = today;
         }
-        
-        // Update active navigation
-        this.updateActiveNav(pageId);
-        
-        // Scroll to top
-        window.scrollTo(0, 0);
-        
-        // Update page title
-        this.updatePageTitle(pageId);
+      }
     }
-    
-    navigateByPageId(pageId, pushState = true) {
-        // Find path for page ID
-        const path = Object.keys(this.routes).find(key => this.routes[key] === pageId) || '/';
-        this.navigate(path, pushState);
+  }
+
+  updateActiveNav(pageId) {
+    // Remove active from all nav links
+    document.querySelectorAll("nav a").forEach((link) => {
+      link.classList.remove("active");
+    });
+
+    // Add active to current page link
+    const activeNavLink = document.querySelector(`nav a[data-page="${pageId}"]`);
+    if (activeNavLink) {
+      activeNavLink.classList.add("active");
     }
-    
-    showPage(pageId) {
-        // Hide all pages
-        document.querySelectorAll('.page-content').forEach(page => {
-            page.classList.remove('active');
-        });
-        
-        // Show requested page
-        const page = document.getElementById(pageId);
-        if (page) {
-            page.classList.add('active');
-            
-            // Special handling for booking form
-            if (pageId === 'booking') {
-                const dateInput = document.getElementById('preferredDate');
-                if (dateInput) {
-                    const today = new Date().toISOString().split('T')[0];
-                    dateInput.min = today;
-                }
-            }
-        }
+
+    // Also update footer links if they exist
+    const path = Object.keys(this.routes).find(
+      (key) => this.routes[key] === pageId
+    );
+    if (path) {
+      const footerLinks = document.querySelectorAll(
+        `footer a[href="${path}"]`
+      );
+      footerLinks.forEach((link) => {
+        link.classList.add("active");
+      });
     }
-    
-    updateActiveNav(pageId) {
-        // Remove active from all nav links
-        document.querySelectorAll('nav a, .footer-col a').forEach(link => {
-            link.classList.remove('active');
-        });
-        
-        // Add active to current page link
-        const activeLinks = document.querySelectorAll(`a[data-page="${pageId}"], a[href="${Object.keys(this.routes).find(key => this.routes[key] === pageId) || '/'}"]`);
-        activeLinks.forEach(link => {
-            link.classList.add('active');
-        });
-    }
-    
-    updatePageTitle(pageId) {
-        const titles = {
-            'home': 'Home - ZOLVEX | Ready to Revive',
-            'about': 'About Us - ZOLVEX | Ready to Revive',
-            'services': 'Services - ZOLVEX | Ready to Revive',
-            'booking': 'Book a Service - ZOLVEX | Ready to Revive',
-            'faq': 'FAQ - ZOLVEX | Ready to Revive',
-            'privacy': 'Privacy Policy - ZOLVEX | Ready to Revive',
-            'terms': 'Terms & Conditions - ZOLVEX | Ready to Revive'
-        };
-        
-        document.title = titles[pageId] || 'ZOLVEX | Ready to Revive';
-    }
+  }
+
+  updatePageTitle(pageId) {
+    document.title = this.pageTitles[pageId] || "ZOLVEX | Ready to Revive";
+  }
 }
 
 // Initialize router
