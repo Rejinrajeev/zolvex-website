@@ -608,110 +608,77 @@
     </section>
 
     <!-- FAQ Page Content -->
-    <section id="faq" class="page-content">
-        <div class="container">
-            <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
-            <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Find answers
-                to common questions about our deep cleaning services, booking process, and policies.</p>
-
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What areas do you serve?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We currently serve the greater metropolitan area and surrounding suburbs. Please contact us
-                            with your specific location to confirm service availability in your area.</p>
-                    </div>
+<section id="faq" class="page-content">
+    <div class="container">
+        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+        <p class="section-subtitle">Find answers to common questions about our cleaning services</p>
+        
+        <!-- Search Bar -->
+        <div class="faq-search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="faqSearch" placeholder="Search questions or keywords...">
+                <button id="clearSearch" class="search-clear">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+        
+        <!-- Two Column Layout -->
+        <div class="faq-layout">
+            <!-- Left Column: Categories -->
+            <div class="faq-categories">
+                <h3 class="categories-title">
+                    <i class="fas fa-list"></i> Categories
+                </h3>
+                <div class="categories-list" id="categoriesList">
+                    <!-- Categories will be populated by JavaScript -->
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How do you determine pricing for cleaning services?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our pricing is based on several factors including the size of the property, type of service
-                            required, current condition, and any special requests. We provide free, no-obligation quotes
-                            after understanding your specific needs.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What cleaning products do you use?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We use professional-grade, eco-friendly cleaning products that are effective yet safe for
-                            your family, pets, and the environment. We can also accommodate requests for specific
-                            products if you have preferences or allergies.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Are your cleaners insured and background-checked?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, all our cleaning professionals are thoroughly vetted, background-checked, and fully
-                            insured. Your safety and security are our top priorities.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Do I need to be home during the cleaning service?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>It's not necessary for you to be present during the cleaning. Many clients provide us with
-                            access instructions or a key. We take security seriously and ensure your property is secure
-                            when we leave.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What is your cancellation policy?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We require at least 24 hours notice for cancellations. Cancellations made with less than 24
-                            hours notice may incur a cancellation fee. We understand emergencies happen and will work
-                            with you in those situations.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Do you offer any satisfaction guarantee?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we offer a 100% satisfaction guarantee. If you're not completely satisfied with any
-                            aspect of our service, please contact us within 24 hours and we'll return to address your
-                            concerns at no additional cost.</p>
-                    </div>
+                
+                <!-- Mobile Category Dropdown -->
+                <div class="category-dropdown">
+                    <select id="mobileCategorySelect" class="category-select">
+                        <option value="">Select a Category</option>
+                    </select>
                 </div>
             </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <h3>Still Have Questions?</h3>
-                <p>Contact us directly and we'll be happy to help!</p>
-                <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem;">
-                    <a href="tel:+918089631909" class="btn btn-secondary">
-                        <i class="fas fa-phone"></i> Call Us
-                    </a>
-                    <a href="mailto:info@zolvex.in" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Email Us
-                    </a>
+            
+            <!-- Right Column: Questions & Answers -->
+            <div class="faq-content">
+                <div class="faq-header">
+                    <h3 id="currentCategoryTitle">General Questions</h3>
+                    <div class="faq-count" id="faqCount">12 Questions</div>
+                </div>
+                
+                <div class="faq-items-container" id="faqItemsContainer">
+                    <!-- FAQ items will be populated by JavaScript -->
+                </div>
+                
+                <!-- Empty State -->
+                <div class="faq-empty" id="faqEmpty">
+                    <i class="fas fa-search"></i>
+                    <h4>No questions found</h4>
+                    <p>Try searching with different keywords or browse another category</p>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <!-- Contact CTA -->
+        <div class="faq-contact-cta">
+            <h3>Still Have Questions?</h3>
+            <p>Can't find what you're looking for? Our team is here to help!</p>
+            <div class="cta-buttons">
+                <a href="tel:+918089631909" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Call +91 8089631909
+                </a>
+                <a href="mailto:info@zolvex.in" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Email Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Privacy Policy Page Content -->
     <section id="privacy" class="page-content">
         <div class="container">
